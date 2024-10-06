@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Travel Itinerary Planner</title>
+    <!-- Font Awesome for Icons (if needed) -->
+    <script src="https://kit.fontawesome.com/988fea0cbb.js" crossorigin="anonymous"></script>
+
+    <!-- Embedded CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f8f5f5;
+        }
+
+        #navelement {
+            background-color: rgba(0, 0, 0, 0.982);
+            height: 10vh;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 60%;
+            width: 8%;
+            border-radius: 50%;
+        }
+
+        .checkbtn {
+            color: white;
+            display: none;
+            font-size: x-large;
+            cursor: pointer;
+        }
+
+        .menu {
+            padding: 10px;
+            color: white;
+            font-size: 26px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .menu:hover {
+            color: #ddd;
+        }
+
+        .register {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 10vh;
+        }
+
+        .container1 {
+            max-width: 400px;
+            width: 90%;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #button-form {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.747);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #button-form:hover {
+            background-color: black;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 15px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #confirmationMessage {
+            margin-top: 20px;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navelement">
+        <img src="./logoass-5.jpg" alt="Logo" class="logo">
+        <div id="nav-item" class="nav-links">
+            <a href="first.html" class="menu">Home</a>
+            <a href="location.html" class="menu">Locations</a>
+            <a href="services.html" class="menu">Services</a>
+            <a href="register.html" class="menu">Register</a>
+            <a href="login.html" class="menu">Login</a>
+        </div>
+        <div class="checkbtn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Register Section -->
+    <section id="Register" class="register">
+        <div class="container1">
+            <h1>Register</h1>
+            <form id="registrationForm" action="/register/submit" method="POST">
+                <div class="form-group">
+                    <label for="nameInput">Full Name:</label>
+                    <input class="input" type="text" id="nameInput" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailInput">Email:</label>
+                    <input class="input" type="email" id="emailInput" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="passwordInput">Password:</label>
+                    <input class="input" type="password" id="passwordInput" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPasswordInput">Confirm Password:</label>
+                    <input class="input" type="password" id="confirmPasswordInput" name="confirmPassword" required>
+                </div>
+                <button id="button-form" type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="./login.html">Login</a></p>
+            <div id="confirmationMessage" class="hidden">You have Registered successfully!</div>
+        </div>
+    </section>
+
+    <!-- Embedded JavaScript -->
+    <script>
+        // Function to toggle the mobile menu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Handle form submission with AJAX
+        document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent form default submission
+
+            const formData = new FormData(this);
+            const response = await fetch('/register/submit', {
+                method: 'POST',
+                body: new URLSearchParams(formData)
+            });
+
+            const result = await response.json();
+
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.textContent = result.message;
+            confirmationMessage.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

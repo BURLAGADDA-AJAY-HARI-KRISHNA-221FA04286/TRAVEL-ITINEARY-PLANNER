@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="first.css">
+    <style>
+      *
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+.intro {
+    background: url('https://www.pixelstalk.net/wp-content/uploads/2016/08/Travel-Images-For-Desktop.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    
+}
+#layout
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+}
+#navelement
+{
+    background-color: rgba(0, 0, 0, 0.982);
+    height:10vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+ #navelement div{
+    margin-left: 40%;
+} 
+.logo{
+    height: 60%;
+    width: 8%;
+    border-radius: 50%;
+    background-size: cover;
+
+}
+.checkbtn{
+    color: white;
+    display: none;
+    font-size: x-large;
+}
+.checkbtn:hover{
+    background-color:transparent;
+}
+
+.menu
+{
+    padding: 10px;
+    color: white;
+    font-size: 26px;
+    text-decoration: none;
+}
+
+.Heading{
+    color: white;
+    font-size: 46px;
+    font-weight: 400px;
+    margin-top: 250px;
+}
+.paragraph{
+    color: white;
+    font-size: 18px;
+}
+.button{
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+    height: 6vh;
+    width: 12vw;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+@media screen and (min-width:300px) and (max-width:1000px)
+{
+    #navelement div
+    {
+      margin-left: 15%;  
+    }
+    #nav-item a
+    {
+        display: none;
+    }
+    .checkbtn{
+        display: block;
+    }
+    .button{
+        height: 6vh;
+        width: 18vw;
+    }
+}
+@media screen and (max-width:750px)
+{
+    .button{
+        height: 6vh;
+        width: 30vw;
+    }
+    .Heading{
+        font-size: 28px;
+    }
+}
+/* 3rd page */
+.serivescontainer,.serivescontainer1{
+    background-color:rgb(248, 245, 245);
+    background-size: cover;
+    height: 100%;
+    padding: 30px;
+    /* display: flex;
+    flex-direction: row; */
+}
+.childserivescontainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+    width: 80%;
+    gap: 50px;
+}
+
+#grid_1
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.section1{
+    background: #f9f9f9;
+    /* padding: 20px; */
+    width: 25%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.section1:hover {
+    color: #2e2e2e;
+    transform: scale(1.05);
+}
+
+.locations{
+    padding: 20px;
+}
+.section1 img{
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+@media screen and (min-width:300px) and (max-width:1000px) {
+    /* .childserivescontainer
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    } */
+    #grid_1
+    {
+        /* display: flex; */
+        flex-direction: column;
+        /* justify-content: center; */
+        /* align-items: center; */
+    }
+    .section1{
+        width: 50%;
+    }
+    
+}
+.serivesplaces{
+    font-size: 32px;
+    font-weight: bold;
+    margin: 24px;
+    padding-top: 50px;
+}
+.centering{
+    display: flex;
+    justify-content: center;
+}
+.locations h1{
+    font-size: 24px;
+    color: black;
+    font-weight: 500px;
+}
+.locations p{
+    font-size: 14px;
+    color: black;
+}
+
+.childserivescontainer1{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.section2{
+    background: #f9f9f9;
+    padding: 20px;
+    width: 25%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    border-radius: 10px;
+}
+.section2 div img{
+    width: 100%;
+    height: auto;
+    background-size: cover;
+}
+.section3{
+    background: #f9f9f9;
+    /* padding: 20px; */
+    width: 25%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    border-radius: 10px;
+}
+.section3 div img{
+    width: 100%;
+    height: auto;
+    background-size: cover;
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <section id="Home">
+        <nav class="" id="navelement">
+            <img src="./logoass-5.jpg" class="logo">
+            <div id="nav-item">
+                <a href="first.html"  class="menu">Home</a>
+                <a href="location.html" class="menu">Locations</a>
+                <a href="services" class="menu">Services</a>
+                <a href="register.html" class="menu">Register</a>
+                <a href="login.html" class="menu">Login</a>
+            </div>
+            <div class="checkbtn">
+                <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+            </div>
+        </nav>
+    </section>
+    <div class="serivescontainer">
+        <h1 class="serivesplaces">Top cities in India</h1>
+        <div class="centering">
+            <div class="childserivescontainer">
+                <div id="grid_1">
+                    <div class="section1">
+                        <div>
+                            <img src="https://cdn.britannica.com/37/189837-050-F0AF383E/New-Delhi-India-War-Memorial-arch-Sir.jpg" alt="Image 1">
+                            <div class="locations">
+                                <h1>Delhi</h1>
+                                <p>12786 Hotels in New Delhi and NCR, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section1">
+                        <div>
+                            <img src="https://images.thequint.com/thequint/2017-12/05e8e3a6-795a-4479-beb1-37ff0b3afaf3/2.jpg?auto=format%2Ccompress" alt="Image 2">
+                            <div class="locations">
+                                <h1>Mumbai</h1>
+                                <p>22957 Hotels in Mumbai, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section1">
+                        <div>
+                            <img src="https://www.tripsavvy.com/thmb/8eoduV4QoEzXdx3siv4rS8prXLg=/2121x1414/filters:fill(auto,1)/GettyImages-606353257-5be1ac59c9e77c00519e8ae0.jpg" alt="Image 3">
+                            <div class="locations">
+                                <h1>Goa</h1>
+                                <p>9254 Hotels in Goa, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section1">
+                        <div>
+                            <img src="https://th.bing.com/th/id/OIP.UQm3HqE8Ka5nN07MK6M6pAHaE8?w=720&h=481&rs=1&pid=ImgDetMain" alt="Image 4">
+                            <div class="locations">
+                                <h1>Bangalore</h1>
+                                <p>5372 Hotels in Bangalore, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="grid_1">
+                    <div class="section1">
+                        <div>
+                            <img src="https://th.bing.com/th/id/OIP.eM82AZoOIzffBrYtWIjWaQHaE8?rs=1&pid=ImgDetMain" alt="Image 5">
+                            <div class="locations">
+                                <h1>Chennai</h1>
+                                <p>6245 Hotels in Chennai, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section1">
+                        <div>
+                            <img src="https://cdn.budgetyourtrip.com/images/photos/headerphotos/large/india_hyderabad.jpg" alt="Image 6">
+                            <div class="locations">
+                                <h1>Hyderabad</h1>
+                                <p>3752 Hotels in Hyderabad, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section1">
+                        <div>
+                            <img src="https://costoffliving.com/wp-content/uploads/2019/07/hawa-mahal.jpg" alt="Image 7">
+                            <div class="locations">
+                                <h1>Jaipur</h1>
+                                <p>825 Hotels in Jaipur, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section1">
+                        <div>
+                            <img src="https://punetourism.co.in/images/places-to-visit/headers/shaniwar-wada-pune-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Image 8">
+                            <div class="locations">
+                                <h1>Pune</h1>
+                                <p>6243 Hotels in Pune, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dream Vacation</title>
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/988fea0cbb.js" crossorigin="anonymous"></script>
+    <!-- Embedded CSS -->
+    <style>
+        /* Universal Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Intro Section */
+        .intro {
+            background: url('https://www.pixelstalk.net/wp-content/uploads/2016/08/Travel-Images-For-Desktop.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Navigation Element */
+        #navelement {
+            background-color: rgba(0, 0, 0, 0.982);
+            height: 10vh;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #navelement div {
+            margin-left: 40%;
+        }
+
+        .logo {
+            height: 60%;
+            width: 8%;
+            border-radius: 50%;
+            background-size: cover;
+            object-fit: cover;
+        }
+
+        /* Mobile Menu Button */
+        .checkbtn {
+            color: white;
+            display: none;
+            font-size: x-large;
+            cursor: pointer;
+        }
+
+        .checkbtn:hover {
+            background-color: transparent;
+        }
+
+        /* Navigation Links */
+        .menu {
+            padding: 10px;
+            color: white;
+            font-size: 26px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .menu:hover {
+            color: #ddd;
+        }
+
+        /* Layout Content */
+        #layout {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        .Heading {
+            font-size: 46px;
+            font-weight: 400;
+            margin-top: 250px;
+        }
+
+        .paragraph {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .button {
+            background-color: transparent;
+            color: white;
+            font-size: 18px;
+            height: 6vh;
+            width: 12vw;
+            border-radius: 10px;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Responsive Styles */
+        @media screen and (min-width: 300px) and (max-width: 1000px) {
+            #navelement div {
+                margin-left: 15%;  
+            }
+            #nav-item a {
+                display: none;
+            }
+            .checkbtn {
+                display: block;
+            }
+            .button {
+                width: 18vw;
+            }
+        }
+
+        @media screen and (max-width: 750px) {
+            .button {
+                width: 30vw;
+            }
+            .Heading {
+                font-size: 28px;
+                margin-top: 200px;
+            }
+        }
+
+        /* Additional Styles for Smooth Menu Transition */
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.982);
+                position: absolute;
+                top: 10vh;
+                left: 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu {
+                font-size: 20px;
+                padding: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="Home">
+        <div class="intro">
+            <!-- Navigation Header -->
+            <header id="header">
+                <nav id="navelement">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR88P8Fdd7v0hArW1-3WIqRR7FO4t3ZlXBBq_rqwq6Qr5qpiyLV1TOsO4OGzbLLJhDqWXY&usqp=CAU" alt="Logo" class="logo">
+                    <div id="nav-item" class="nav-links">
+                        <a href="first.html" class="menu">Home</a>
+                        <a href="location.html" class="menu">Locations</a>
+                        <a href="services.html" class="menu">Services</a>
+                        <a href="register.html" class="menu">Register</a>
+                        <a href="login.html" class="menu">Login</a>
+                    </div>
+                    <div class="checkbtn" onclick="toggleMenu()">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Main Content -->
+            <div id="layout">
+                <h1 class="Heading">Your Dream Vacation Awaits</h1>
+                <p class="paragraph">Explore India's best destinations with ease</p>
+                <button class="button" onclick="bookTickets()">Book Tickets</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Embedded JavaScript -->
+    <script>
+        // Function to toggle the mobile menu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Function to handle "Book Tickets" button click
+        function bookTickets() {
+            // Redirect to AbhiBus
+            window.location.href = "https://www.abhibus.com";
+        }
+
+        // Function to show the selected page section (if applicable)
+        function showPage(pageId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+
+            // Close the menu on mobile after selection
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.remove('active');
+        }
+
+        // Simple alert for search functionality (if a form exists)
+        // Uncomment and modify if you have a search form
+        /*
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Search functionality coming soon!");
+        });
+        */
+    </script>
+</body>
+</html>
